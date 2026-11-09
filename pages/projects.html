@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects Showcase | Manomohan Dhanush</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script>tailwind.config = { darkMode: 'class' };</script>
+  <link rel="stylesheet" href="../styles/variables.css" />
+  <link rel="stylesheet" href="../styles/layout.css" />
+  <link rel="stylesheet" href="../styles/components.css" />
+</head>
+<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 min-h-screen flex flex-col">
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+  <!-- Shared Sticky Top Navigation Bar -->
+  <header class="sticky top-0 z-40 border-b border-slate-200/80 dark:border-slate-800/80 bg-white/85 dark:bg-slate-950/85 glass-card transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-3">
+      <a href="../index.html" class="flex items-center gap-3 text-left group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-indigo-600 flex items-center justify-center text-white font-mono-code font-bold text-sm shadow-lg shadow-emerald-500/20 group-hover:scale-105 transition-transform">
+          MD
+        </div>
+        <div>
+          <div class="font-bold text-sm sm:text-base tracking-tight text-slate-900 dark:text-white flex items-center gap-1.5">
+            Manomohan Dhanush
+            <span class="inline-block w-2 h-2 rounded-full bg-emerald-500" title="Available for opportunities"></span>
+          </div>
+          <div class="text-xs font-mono-code text-slate-500 dark:text-slate-400">
+            Flutter &amp; Full-Stack Dev
+          </div>
+        </div>
+      </a>
+
+      <!-- Multi-Page Navigation Links -->
+      <nav class="hidden md:flex items-center gap-1 bg-slate-100 dark:bg-slate-900/90 p-1 rounded-xl border border-slate-200/70 dark:border-slate-800">
+        <a href="../index.html" class="px-3.5 py-1.5 rounded-lg text-sm font-medium transition-all text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white">Home</a>
+        <a href="about.html" class="px-3.5 py-1.5 rounded-lg text-sm font-medium transition-all text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white">About &amp; Skills</a>
+        <a href="projects.html" class="px-3.5 py-1.5 rounded-lg text-sm font-medium transition-all bg-white dark:bg-slate-800 text-emerald-600 dark:text-emerald-400 shadow-sm">Projects</a>
+        <a href="contact.html" class="px-3.5 py-1.5 rounded-lg text-sm font-medium transition-all text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white">Contact</a>
+      </nav>
+
+      <!-- Theme & Mobile Controls -->
+      <div class="flex items-center gap-2">
+        <button id="themeToggleBtn" type="button" aria-label="Toggle color theme" class="p-2 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:text-emerald-500 transition">
+          <svg class="w-4 h-4 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+          <svg class="w-4 h-4 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+          </svg>
+        </button>
+
+        <button id="mobileMenuBtn" type="button" aria-label="Toggle Menu" class="md:hidden p-2 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileNavDrawer" class="hidden md:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 px-4 pt-2 pb-4 space-y-1.5">
+      <a href="../index.html" class="block px-3 py-2 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900">Home</a>
+      <a href="about.html" class="block px-3 py-2 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900">About &amp; Skills</a>
+      <a href="projects.html" class="block px-3 py-2 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900">Projects Showcase</a>
+      <a href="contact.html" class="block px-3 py-2 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900">Contact Me</a>
+    </div>
+  </header>
+
+  <main class="flex-1 hero-glow grid-bg py-14 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+        <div>
+          <div class="text-xs font-mono-code uppercase tracking-widest text-emerald-600 dark:text-emerald-400 font-semibold mb-2">
+            02 // SELECTED ENGINEERING WORK
+          </div>
+          <h1 class="text-2xl sm:text-4xl font-bold text-slate-900 dark:text-white tracking-tight">
+            Project Showcase &amp; Architecture
+          </h1>
+        </div>
+        <div class="flex flex-wrap items-center gap-2">
+          <button type="button" data-proj-filter="all" class="proj-filter-btn px-3.5 py-2 rounded-xl text-xs font-mono-code font-semibold bg-emerald-500 text-white">All Projects (3)</button>
+          <button type="button" data-proj-filter="fullstack" class="proj-filter-btn px-3.5 py-2 rounded-xl text-xs font-mono-code font-semibold bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800">Full-Stack Web</button>
+          <button type="button" data-proj-filter="flutter" class="proj-filter-btn px-3.5 py-2 rounded-xl text-xs font-mono-code font-semibold bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800">Flutter (Android/Win)</button>
+          <button type="button" data-proj-filter="java" class="proj-filter-btn px-3.5 py-2 rounded-xl text-xs font-mono-code font-semibold bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800">Java &amp; MySQL</button>
+        </div>
+      </div>
+
+      <div id="projectsGrid" class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- Project 1 -->
+        <article data-category="fullstack" class="project-card bg-white dark:bg-slate-900/90 rounded-2xl border border-slate-200/80 dark:border-slate-800 overflow-hidden shadow-sm flex flex-col">
+          <div class="relative h-52 overflow-hidden bg-slate-950">
+            <img src="../assets/images/sales_dashboard.jpg" alt="Sales Management Dashboard" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <h2 class="text-xl font-bold text-slate-900 dark:text-white">Sales Management Dashboard</h2>
+              <p class="text-sm text-slate-600 dark:text-slate-300 mt-2">
+                React/Vite dashboard for order management, leaderboards, and login history using Redux Toolkit and Tailwind CSS, backed by Express.js and MongoDB.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+              <div class="flex gap-2">
+                <a href="https://sales-management-system-react.vercel.app/" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-emerald-500 text-white">Live Demo</a>
+                <a href="https://github.com/mdhanush666/sales-management-system-react" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1.5 rounded-lg text-xs font-mono-code border border-slate-700">FE Repo</a>
+                <a href="https://github.com/mdhanush666/sales-management-system-backend" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1.5 rounded-lg text-xs font-mono-code border border-slate-700">BE Repo</a>
+              </div>
+              <button type="button" data-project-modal="sales-dashboard" class="open-project-modal text-xs font-mono-code text-indigo-400 hover:underline">Architecture →</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article data-category="flutter" class="project-card bg-white dark:bg-slate-900/90 rounded-2xl border border-slate-200/80 dark:border-slate-800 overflow-hidden shadow-sm flex flex-col">
+          <div class="relative h-52 overflow-hidden bg-slate-950">
+            <img src="../assets/images/flutter_sales_app.jpg" alt="Cross-Platform Flutter Sales App" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <h2 class="text-xl font-bold text-slate-900 dark:text-white">Cross-Platform Sales Management System</h2>
+              <p class="text-sm text-slate-600 dark:text-slate-300 mt-2">
+                Production Flutter app (Android &amp; Windows) at Hedanship Asia with Node.js/Express REST APIs, MongoDB, JWT device-restricted auth, Railway &amp; Firebase.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+              <span class="text-xs font-mono-code text-slate-400">Hedanship Asia Production</span>
+              <button type="button" data-project-modal="flutter-sales" class="open-project-modal text-xs font-mono-code text-indigo-400 hover:underline">Case Study →</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article data-category="java" class="project-card bg-white dark:bg-slate-900/90 rounded-2xl border border-slate-200/80 dark:border-slate-800 overflow-hidden shadow-sm flex flex-col">
+          <div class="relative h-52 overflow-hidden bg-slate-950">
+            <img src="../assets/images/student_system.jpg" alt="Student Management System" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <h2 class="text-xl font-bold text-slate-900 dark:text-white">Student Management System</h2>
+              <p class="text-sm text-slate-600 dark:text-slate-300 mt-2">
+                Java and MySQL application for student registration, attendance records, and role-based workflows for administrators, teachers, and students.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+              <a href="https://github.com/mdhanush666/Student-Management-System-JAVA" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-white">GitHub Repository</a>
+              <button type="button" data-project-modal="student-system" class="open-project-modal text-xs font-mono-code text-indigo-400 hover:underline">Architecture →</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <!-- Project Architecture Modal -->
+  <div id="projectModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/75 backdrop-blur-sm">
+    <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl max-w-2xl w-full p-6 sm:p-8 space-y-5">
+      <div class="flex items-start justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-4">
+        <div>
+          <span id="modalProjBadge" class="text-xs font-mono-code uppercase text-emerald-500 font-semibold">Project Architecture</span>
+          <h3 id="modalProjTitle" class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mt-0.5">Project Title</h3>
+        </div>
+        <button id="closeProjectModalBtn" type="button" class="p-1.5 rounded-lg text-slate-400 hover:text-white border border-slate-800">✕</button>
+      </div>
+      <div id="modalProjContent" class="space-y-4 text-sm text-slate-600 dark:text-slate-300"></div>
+    </div>
+  </div>
+
+  <!-- Shared Footer -->
+  <footer class="border-t border-slate-200/80 dark:border-slate-800/80 bg-white dark:bg-slate-950 py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-slate-400">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+        <span>© 2026 <strong class="text-slate-800 dark:text-slate-200">Manomohan Dhanush</strong></span>
+      </div>
+      <div class="flex items-center gap-4 font-mono-code">
+        <a href="https://github.com/mdhanush666" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-500">GitHub</a>
+        <a href="https://www.linkedin.com/in/dhanush666/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-500">LinkedIn</a>
+        <a href="https://sales-management-system-react.vercel.app/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-500">Live Dashboard</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/models/portfolioModel.js"></script>
+  <script src="../js/views/portfolioView.js"></script>
+  <script src="../js/controllers/portfolioController.js"></script>
+</body>
+</html>
